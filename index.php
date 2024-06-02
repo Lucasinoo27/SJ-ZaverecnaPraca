@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $task->description = $_POST['description'];
         $task->status = $_POST['status'];
         $task->update();
-    } elseif (isset($_POST['delete'])) {
+    } elseif (isset($_POST['delete'])) {    
         $task->id = $_POST['id'];
         $task->delete();
     }
@@ -80,8 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <footer>
         <?php include __DIR__ . '/casti/footer.php'; ?>
     </footer>
-    <script src="js/menu.js"></script>
-    <script src="js/slider.js"></script>
     <script>
         // Funkcia na predvyplnenie formulára pre editáciu úlohy
         function editTask(id, title, description, status) {
@@ -89,13 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             document.getElementById('task-title').value = title;
             document.getElementById('task-description').value = description;
             document.getElementById('task-status').value = status;
-        }
-        // Funkcia na potvrdenie zmazania úlohy
-        function deleteTask(id) {
-            if (confirm('Naozaj chcete zmazať túto úlohu?')) {
-                document.getElementById('task-id').value = id;
-                document.forms[0].submit();
-            }
         }
     </script>
 </body>
